@@ -15,7 +15,12 @@ while true
 		print ">> "
 		input_text = gets.chomp()
 
-	when "BYE!" #exit process
+	when "BYE"
+		puts "Sorry, I couldn't hear you, say it again?"
+		print ">> "
+		input_text = gets.chomp()
+
+	when "BYE BYE BYE" #exit process
 		puts "You have a great day!"
 		Process.exit(0)
 
