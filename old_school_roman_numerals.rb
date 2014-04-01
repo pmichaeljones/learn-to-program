@@ -47,6 +47,3 @@ def old_school_roman_numeral(year)
 	end
 
 end
-
-
-old_school_roman_numeral(6573)
