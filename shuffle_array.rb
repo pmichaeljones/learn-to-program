@@ -22,7 +22,7 @@ shuffle_array = [] #this is where each random element from array will be pushed
 
 		shuffle_array << random_element #put the random element into the new array
 
-		array.delete(random_element) #erase the random element from the input array and start over
+		array.delete(random_element) #erase the random element from the input array and start overc
 	end
 
 	puts shuffle_array.to_s
