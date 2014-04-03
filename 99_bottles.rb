@@ -1,11 +1,31 @@
 def sing_beer_song(number_of_bottles)
 	#set some key variables for building answer string
-	small_numbers = ['one', 'two', 'three', 'four', 'five', 'six',
-		'seven', 'eight', 'nine', 'ten']
+	
+	small_numbers = {
+		'1' => 'one',
+		'2' => 'two',
+		'3' => 'three',
+		'4' => 'four',
+		'5' => 'five',
+		'6' => 'six',
+		'7' => 'seven',
+		'8' => 'eight',
+		'9' => 'nine'
+	}
+	
 	teenagers = ['eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen',
 		'sixteen', 'seventeen', 'eighteen', 'nineteen']
-	middle_numbers = ['twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy',
-		'eighty', 'ninety']
+	
+	middle_numbers = {
+		'2' => 'twenty', #starts at 2 becuase of teenagers
+		'3' => 'thirty',
+		'4' => 'forty',
+		'5' => 'fifty',
+		'6' => 'sixty',
+		'7' => 'seventy',
+		'8' => 'eighty',
+		'9' => 'ninety'
+	}
 	hundred = "hundred"
 	thousand = "thousand"
 
@@ -19,10 +39,31 @@ def sing_beer_song(number_of_bottles)
 	while bottle_as_array.length > 0
 
 		if bottle_as_array.length == 4 #we need to work out thousands
+			puts "#{small_numbers[bottle_as_array[0]]}" + thousand
+			#remove one digit
+			bottle_as_array = bottle_as_array.shift()
+			#make it an integer again
+			bottle_as_array_to_integer = bottle_as_array.join("").to_i
+			#recursion time!
+			sing_beer_song(bottle_as_array_to_integer)
 
 		if bottle_as_array.length == 3 #we have to work out hundreds
-		
+			puts "#{small_numbers[bottle_as_array[0]]}" + hundred
+			#remove one digit
+			bottle_as_array = bottle_as_array.shift()
+			#make it an integer again
+			bottle_as_array_to_integer = bottle_as_array.join("").to_i
+			#recursion time!
+			sing_beer_song(bottle_as_array_to_integer)
+
 		if bottle_as_array.length == 2 #we are working with # < 100 now
+			puts "#{small_numbers[bottle_as_array[0]]}"
+			#remove one digit
+			bottle_as_array = bottle_as_array.shift()
+			#make it an integer again
+			bottle_as_array_to_integer = bottle_as_array.join("").to_i
+			#recursion time!
+			sing_beer_song(bottle_as_array_to_integer)
 		
 		if bottle_as_array.legnth == 1 #final digit time
 		
@@ -31,10 +72,6 @@ def sing_beer_song(number_of_bottles)
 	end
 
 	puts english_number
+
 	
-
-
-
-	#Make the array into an integer again before feeding it back to the beast(recursion)
-	bottle_as_array_to_integer = bottle_as_array.join("").to_i
 
