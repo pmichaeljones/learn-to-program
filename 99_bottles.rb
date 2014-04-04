@@ -13,8 +13,17 @@ def sing_beer_song(number_of_bottles, english_number = '')
 		'9' => 'nine'
 	}
 	
-	teenagers = ['eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen',
-		'sixteen', 'seventeen', 'eighteen', 'nineteen']
+	teenagers = {
+		'1' => 'eleven', 
+		'2' => 'twelve', 
+		'3' => 'thirteen', 
+		'4' => 'fourteen',
+		'5' => 'fifteen',
+		'6' => 'sixteen',
+		'7' => 'seventeen',
+		'8' => 'eighteen', 
+		'9' => 'nineteen'
+	}
 	
 	middle_numbers = {
 		'2' => 'twenty', #starts at 2 becuase of teenagers
@@ -57,14 +66,22 @@ def sing_beer_song(number_of_bottles, english_number = '')
 				sing_beer_song(bottle_as_array_to_integer, english_number)
 
 			elsif bottle_as_array.length == 2 #we are working with # < 100 now
-				english_number = english_number + "#{middle_numbers[bottle_as_array[0]]}-"
-				#remove one digit
-				bottle_as_array = bottle_as_array.pop()
-				#make it an integer again
-				bottle_as_array_to_integer = bottle_as_array.to_i
-				#recursion time!
-				sing_beer_song(bottle_as_array_to_integer, english_number)
-			
+				
+				#exception for 11, 12, 13, etc
+				if bottle_as_array[0] == "1"
+					english_number = english_number + "#{teenagers[bottle_as_array[1]]}"
+					return english_number
+				else
+					
+					english_number = english_number + "#{middle_numbers[bottle_as_array[0]]}-"
+					#remove one digit
+					bottle_as_array = bottle_as_array.pop()
+					#make it an integer again
+					bottle_as_array_to_integer = bottle_as_array.to_i
+					#recursion time!
+					sing_beer_song(bottle_as_array_to_integer, english_number)
+				end
+
 			elsif bottle_as_array.length == 1 #final digit time
 				english_number = english_number + "#{small_numbers[bottle_as_array[0]]}"
 				return english_number
