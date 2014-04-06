@@ -10,6 +10,8 @@
 
 #Ill repeat the process until the original array's length == 0
 
+require 'pry'
+
 def shuffle_array(array)
 
 shuffle_array = [] #this is where each random element from array will be pushed
@@ -28,5 +30,7 @@ shuffle_array = [] #this is where each random element from array will be pushed
 	puts shuffle_array.to_s
 
 end
+
+shuffle_array(["Patrick", "Michael", "Jones", "Is", "Smart"])
 
 
