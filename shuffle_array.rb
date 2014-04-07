@@ -10,6 +10,7 @@
 
 #Ill repeat the process until the original array's length == 0
 
+
 require 'pry'
 
 def shuffle_array(array)
@@ -32,5 +33,7 @@ shuffle_array = [] #this is where each random element from array will be pushed
 end
 
 shuffle_array(["Patrick", "Michael", "Jones", "Is", "Smart"])
+
+binding.pry
 
 
